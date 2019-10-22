@@ -76,8 +76,36 @@
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/DfuOJX1f.png)
 
-##Сборка проекта
-Перейдите в папку куда склонировали проект.
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.2.0.RELEASE/maven-plugin/)
+##Сборка и старт проекта
+Перейдите в папку куда склонировали проект. Зажмите «Shift» и кликните правой кнопкой мыши на пустом месте. В выпадающем 
+меню выберите «Открыть окно команд». 
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/kD9dMsy6.png)
+<br><br/>
+Далее введите команду  `mvn clean install` - сборка проекта
+<br><br/>
+Далее `mvn spring-boot:run` - запуск проекта
 
+##Как пользоваться
+В браузере перейдите по URL [http://localhost:8090/fms-presenter](http://localhost:8090/fms-presenter)
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/t0vRXNIn.png)
+<br><br/>
+При нажатии на кнопку "Запросить список ФМС" скачивается архив с файлом с данными о ФМС и записывается в БД. При успешном
+скачивании справа от кнопки будет сообщение "Список успешно получен", в случае ошибки, будет сообщение "Внутренняя ошибка 
+сервера"
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/vaJwLfUh.png)
+<br><br/>
+При нажатии на кнопку "Отобразить весь список отделений" в таблице отрисовываются данные всех отделений сохраненных в БД.
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/kaHnbttc.png)
+<br><br/>
+При нажатии на кнопку "Отобразить отделения по коду" в таблице отрисовываются данные всех отделений с введенный кодом.
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/qxULT8ik.png)
+<br><br/>
+При вводе кода, по которому не находятся отделения над таблицей выводится сообщение "Отделения ФМС по данному коду не 
+найдены".
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/we5dnXhR.png)

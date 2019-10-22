@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-    @RequestMapping("/")
+    @RequestMapping("/fms-presenter")
     public String welcome() {
         return "index";
     }

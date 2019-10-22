@@ -23,6 +23,16 @@
     </table>
 </form>
 <br/>
+<form ng-submit="getAllFms()">
+    <table border="0">
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Отобразить весь список отделений" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
 <form ng-submit="getFmsByCode()">
     <table border="0">
         <tr>
@@ -31,23 +41,13 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Отделения по коду" class="blue-button"/>
+                <input type="submit" value="Отобразить отделения по коду" class="blue-button"/>
             </td>
         </tr>
     </table>
     <tr>
         <td>{{incorrectCode}}</td>
     </tr>
-</form>
-<br/>
-<form ng-submit="getAllFms()">
-    <table border="0">
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Получить весь список отделений" class="blue-button" />
-            </td>
-        </tr>
-    </table>
 </form>
 <br/>
 <table border="1">

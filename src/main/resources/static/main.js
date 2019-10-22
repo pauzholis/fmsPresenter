@@ -12,7 +12,7 @@ app.controller("FmsController", function ($scope, $http) {
     $scope.getFmsByCode = function () {
         $http({
             method: "GET",
-            url: "/fms/".concat($scope.fmsForm.code)
+            url: "fms-presenter/fms/".concat($scope.fmsForm.code)
         }).then(function (res) {
             $scope.fmsList = res.data.data;
             $scope.incorrectCode = "";
@@ -25,7 +25,7 @@ app.controller("FmsController", function ($scope, $http) {
     $scope.getAllFms = function () {
         $http({
             method: "GET",
-            url: "/fms"
+            url: "fms-presenter/fms"
         }).then(function (res) {
             $scope.fmsList = res.data.data;
         });
@@ -34,7 +34,7 @@ app.controller("FmsController", function ($scope, $http) {
     $scope.getArchive = function () {
         $http({
             method: 'GET',
-            url: '/fmsArchive'
+            url: 'fms-presenter/fmsArchive'
         }).then(function (res) { // success
                 $scope.fmsArchive = "Список успешно получен";
                 if (res.data.data.error != null) {
