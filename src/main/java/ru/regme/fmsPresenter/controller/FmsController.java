@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.regme.fmsPresenter.model.FederalMigrationServiceDTO;
-import ru.regme.fmsPresenter.model.ServerErrorException;
 import ru.regme.fmsPresenter.service.FmsService;
 
 import java.util.List;
@@ -47,15 +46,15 @@ public class FmsController {
     @GetMapping(value = "/fms/{fmsCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public List<FederalMigrationServiceDTO> getFms(@PathVariable("fmsCode") String fmsCode)
-            throws ServerErrorException {
+            throws Exception {
         return fmsService.getFmsByCode(fmsCode);
     }
 
     /**
      * Получить архив с данными о ФМС и сохранить в базу
      */
-    @GetMapping(value = "/fmsArchive", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void saveFms() {
+    @GetMapping(value = "/fms/archive", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void saveFms() throws Exception {
         fmsService.saveFms();
     }
 }

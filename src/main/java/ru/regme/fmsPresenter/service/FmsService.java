@@ -1,17 +1,18 @@
 package ru.regme.fmsPresenter.service;
 
 import ru.regme.fmsPresenter.model.FederalMigrationServiceDTO;
-import ru.regme.fmsPresenter.model.ServerErrorException;
 
-import java.io.IOException;
 import java.util.List;
 
+/**
+ * Интерфейс для описания методов работы с данными ФМС
+ */
 public interface FmsService {
 
     /**
      * Сохранить ФМС в базу данных
      */
-    void saveFms();
+    void saveFms() throws Exception;
 
     /**
      * Получить все отделения ФМС из базы
@@ -26,5 +27,5 @@ public interface FmsService {
      * @param fmsCode код ФМС
      * @return ФМС
      */
-    List<FederalMigrationServiceDTO> getFmsByCode(String fmsCode) throws ServerErrorException;
+    List<FederalMigrationServiceDTO> getFmsByCode(String fmsCode) throws Exception;
 }

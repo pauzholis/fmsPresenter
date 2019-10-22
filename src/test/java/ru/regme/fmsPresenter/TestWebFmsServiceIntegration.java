@@ -9,7 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.regme.fmsPresenter.database.dao.FmsRepository;
 import ru.regme.fmsPresenter.database.entity.FederalMigrationService;
 import ru.regme.fmsPresenter.model.FederalMigrationServiceDTO;
-import ru.regme.fmsPresenter.model.ServerErrorException;
 import ru.regme.fmsPresenter.service.FmsService;
 
 import java.util.Collections;
@@ -21,7 +20,7 @@ import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestFmsServiceImplIntegration {
+public class TestWebFmsServiceIntegration {
 
     @Autowired
     private FmsService fmsService;
@@ -30,7 +29,7 @@ public class TestFmsServiceImplIntegration {
     private FmsRepository fmsRepository;
 
     @Test
-    public void getFmsByCodeTest() throws ServerErrorException {
+    public void getFmsByCodeTest() throws Exception {
         given(this.fmsRepository.getAllByCode(any())).willReturn(
                 Collections.singletonList(
                         new FederalMigrationService(

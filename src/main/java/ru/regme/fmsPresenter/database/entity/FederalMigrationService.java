@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "federal_migration_service")
-public class FederalMigrationService implements Serializable {
+public class FederalMigrationService {
 
     /**
      * Идентификатор записи

@@ -5,6 +5,9 @@ import ru.regme.fmsPresenter.database.entity.FederalMigrationService;
 
 import java.util.List;
 
+/**
+ * Репозиторий для описания методов работы с БД
+ */
 public interface FmsRepository extends JpaRepository<FederalMigrationService, Long> {
 
     /**

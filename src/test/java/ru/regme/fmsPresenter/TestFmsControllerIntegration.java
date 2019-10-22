@@ -44,7 +44,7 @@ public class TestFmsControllerIntegration {
 
         given(service.getAllFms()).willReturn(allFms);
 
-        mvc.perform(get("/fms")
+        mvc.perform(get("/fms-presenter/fms")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data", hasSize(1)))
@@ -65,7 +65,7 @@ public class TestFmsControllerIntegration {
 
         given(service.getFmsByCode(code)).willReturn(allFms);
 
-        mvc.perform(get("/fms/".concat(code))
+        mvc.perform(get("/fms-presenter/fms/".concat(code))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data", hasSize(1)))

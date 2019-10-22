@@ -10,6 +10,9 @@ app.controller("FmsController", function ($scope, $http) {
     };
 
     $scope.getFmsByCode = function () {
+        if ($scope.fmsForm.code === "") {
+            $scope.fmsForm.code = null;
+        }
         $http({
             method: "GET",
             url: "fms-presenter/fms/".concat($scope.fmsForm.code)
@@ -34,7 +37,7 @@ app.controller("FmsController", function ($scope, $http) {
     $scope.getArchive = function () {
         $http({
             method: 'GET',
-            url: 'fms-presenter/fmsArchive'
+            url: 'fms-presenter/fms/archive'
         }).then(function (res) { // success
                 $scope.fmsArchive = "Список успешно получен";
                 if (res.data.data.error != null) {

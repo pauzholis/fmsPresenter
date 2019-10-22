@@ -5,7 +5,7 @@
 # Как использовать
 Для данного приложения будет использоваться БД PostgreSQL.
 ## Установка и настройка БД.
-Установите PostgreSQL. Для этого перейдите на стриницу [загрузки](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). 
+Установите PostgreSQL. Для этого перейдите на страницу [загрузки](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). 
 Скачайте версию 11.5, для Windows.
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/iBFihQeT.png)
@@ -77,6 +77,7 @@
 ![alt text](http://skrinshoter.ru/i/221019/DfuOJX1f.png)
 
 ##Сборка и старт проекта
+<br><br/>
 Перейдите в папку куда склонировали проект. Зажмите «Shift» и кликните правой кнопкой мыши на пустом месте. В выпадающем 
 меню выберите «Открыть окно команд». 
 <br><br/>
@@ -87,6 +88,7 @@
 Далее `mvn spring-boot:run` - запуск проекта
 
 ##Как пользоваться
+<br><br/>
 В браузере перейдите по URL [http://localhost:8090/fms-presenter](http://localhost:8090/fms-presenter)
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/t0vRXNIn.png)
