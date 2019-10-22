@@ -1,0 +1,13 @@
+table  {
+    border-collapse: collapse;
+}
+
+table td, th  {
+    padding: 5px;
+}
+
+.create-button  {
+    color: blue;
+    cursor: pointer;
+    padding: 5px;
+}

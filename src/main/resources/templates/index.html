@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Федеральная Миграционная Служба</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/main.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <head>
+<body ng-app="FmsList" ng-controller="FmsController">
+<h3>
+    Отображение списка миграционных служб
+</h3>
+<form ng-submit="getArchive()">
+    <table border="0">
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Запросить список ФМС" class="blue-button" />
+            <td>{{fmsArchive}}</td>
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<form ng-submit="getFmsByCode()">
+    <table border="0">
+        <tr>
+            <td>Код отделения</td>
+            <td><input type="text" ng-model="fmsForm.code"  /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Отделения по коду" class="blue-button"/>
+            </td>
+        </tr>
+    </table>
+    <tr>
+        <td>{{incorrectCode}}</td>
+    </tr>
+</form>
+<br/>
+<form ng-submit="getAllFms()">
+    <table border="0">
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Получить весь список отделений" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<table border="1">
+    <tr>
+        <th>Наименование отделения</th>
+        <th>Код отделения</th>
+    </tr>
+    <!-- $scope.fms -->
+    <tr ng-repeat="fms in fmsList">
+        <td> {{ fms.name }}</td>
+        <td> {{ fms.code }}</td>
+    </tr>
+</table>
+</body>
+</html>
