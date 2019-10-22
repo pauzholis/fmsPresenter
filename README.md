@@ -4,47 +4,24 @@
 
 # Как использовать
 Для данного приложения будет использоваться БД PostgreSQL.
-## Установка и настройка БД.
+## Установка и настройка БД в ОС Windows 10.
 Установите PostgreSQL. Для этого перейдите на страницу [загрузки](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). 
 Скачайте версию 11.5, для Windows.
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/iBFihQeT.png)
 <br><br/>
-Запустите скачаный файл. После этого откроется окно приветствия, нажмите «Next».
+Запустите скачаный файл. После этого откроется окно приветствия, можете ничего не менять, пока не дойдете до окна с 
+вводом пароля.
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/6iufKE8f.png)
-<br><br/>
-В случае необходимости укажите путь и нажмите «Next».
-<br><br/>
-![alt text](http://skrinshoter.ru/i/221019/CZkUHb5k.png)
-<br><br/>
-Оставьте выбранными все компоненты и нажмите «Next».
-<br><br/>
-![alt text](http://skrinshoter.ru/i/221019/b1b5ZGaW.png)
-<br><br/>
-Не изменяйте каталог предлагаемый по умолчанию для хранения файлов БД и нажмите «Next».
-<br><br/>
-![alt text](http://skrinshoter.ru/i/221019/vHxznIrF.png)
 <br><br/>
 Задайте пароль для пользователя postgres. Пароль root введите в 2 поля. Нажмите «Next».
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/DVca9s9T.png)
 <br><br/>
-Оставьте по умолчанию порт на котором будет работать PostgreSQL 5432. Нажмите «Next».
+Оставьте по умолчанию порт на котором будет работать PostgreSQL 5432. Нажимайте «Next» пока не пойдет процесс установки.
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/WWPoiHQb.png)
-<br><br/>
-Оставьте кодировку указанную по умолчанию. Нажмите «Next».
-<br><br/>
-![alt text](http://skrinshoter.ru/i/221019/itAwUYu5.png)
-<br><br/>
-Окно с отображением устанавливаемых параметров. Нажмите «Next».
-<br><br/>
-![alt text](http://skrinshoter.ru/i/221019/J3xE4GaR.png)
-<br><br/>
-Запуск установки. Нажмите «Next».
-<br><br/>
-![alt text](http://skrinshoter.ru/i/221019/rwWq7IgI.png)
 <br><br/>
 Подождите окончания установки.
 <br><br/>
@@ -75,8 +52,16 @@
 В открывшемся окне, в поле Database введите fms. Нажмите кнопку «Save».
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/DfuOJX1f.png)
-
-##Сборка и старт проекта
+<br><br/>
+## Установка и настройка БД в ОС Ubuntu 16.04.
+Ключевые параметры при настройке PostgreSQL:<br/>
+Пользователь `postgres`. <br>Пароль `root`. <br>БД `fms`. <br>Адрес подключения `localhost:5432/fms`<br/>
+Если вы используете Docker и Ubuntu 16.04, можно настроить PostgreSQL по этой 
+[инструкции](https://docs.docker.com/engine/examples/postgresql_service/).<br>
+Если вы не используете Docker, то PostgreSQL можно настроить по это 
+[инструкции](https://computingforgeeks.com/install-postgresql-11-on-ubuntu-18-04-ubuntu-16-04/)
+<br><br/>
+## Сборка и старт проекта в ОС Windows 10.
 <br><br/>
 Перейдите в папку куда склонировали проект. Зажмите «Shift» и кликните правой кнопкой мыши на пустом месте. В выпадающем 
 меню выберите «Открыть окно команд». 
@@ -84,11 +69,20 @@
 ![alt text](http://skrinshoter.ru/i/221019/kD9dMsy6.png)
 <br><br/>
 Далее введите команду  `mvn clean install` - сборка проекта
-<br><br/>
+<br>
 Далее `mvn spring-boot:run` - запуск проекта
-
-##Как пользоваться
 <br><br/>
+## Сборка и старт проекта в ОС Ubuntu 16.04.
+Перейдите в папку куда склонировали проект. Кликните правой кнопкой мыши на пустом месте. В выпадающем 
+меню выберите «Открыть в терминале». <br>Введите команду `sudo su`. <br>Затем введите пароль от учетной записи 
+суперпользователя.
+<br>Затем введите команду  `mvn clean install` - сборка проекта
+<br>
+Далее `mvn spring-boot:run` - запуск проекта
+<br><br/>
+![alt text](http://skrinshoter.ru/i/221019/fPzoSAD2.png)
+<br><br/>
+## Как пользоваться
 В браузере перейдите по URL [http://localhost:8090/fms-presenter](http://localhost:8090/fms-presenter)
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/t0vRXNIn.png)
@@ -111,3 +105,5 @@
 найдены".
 <br><br/>
 ![alt text](http://skrinshoter.ru/i/221019/we5dnXhR.png)
+
+
