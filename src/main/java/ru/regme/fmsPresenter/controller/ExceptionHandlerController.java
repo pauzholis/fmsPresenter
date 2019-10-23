@@ -19,7 +19,7 @@ public class ExceptionHandlerController {
      */
     @ExceptionHandler(Exception.class)
     public ExceptionView handleException(Exception e) {
-        log.error("response {}", e.getMessage(), e);
+        log.error("{}", e.getMessage(), e);
         return new ExceptionView("Внутренняя ошибка сервера");
     }
 }

@@ -2,8 +2,6 @@ package ru.regme.fmsPresenter.service;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.regme.fmsPresenter.database.dao.FmsRepository;
@@ -38,7 +36,6 @@ public class WebFmsService implements FmsService {
 
     private final String ARCHIVE_FILE_NAME = "fms_structure_10012018.zip";
     private FmsRepository fmsRepository;
-    private static Logger log = LoggerFactory.getLogger(WebFmsService.class);
 
     public WebFmsService(FmsRepository fmsRepository) {
         this.fmsRepository = fmsRepository;
@@ -73,9 +70,6 @@ public class WebFmsService implements FmsService {
                 }
                 new File(uncompressedFileName).delete();
             }
-        } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new Exception("Ошибка обработки архива");
         }
         new File(ARCHIVE_FILE_NAME).delete();
     }
@@ -102,25 +96,6 @@ public class WebFmsService implements FmsService {
     private FederalMigrationServiceDTO convertFmsToDTO(FederalMigrationService fms) {
         return new FederalMigrationServiceDTO(fms.getName(), fms.getCode());
     }
-
-//    /**
-//     * Получить строки с данными о ФМС из CSV файла
-//     *
-//     * @param uncompressedFileName полное наименование файла из архива
-//     * @return строки с данными о ФМС
-//     * @throws IOException исключение обработки csv файла
-//     */
-//    private List<String[]> getFmsLinesFromCsv(String uncompressedFileName) throws IOException {
-//        InputStream inputStream = new FileInputStream(uncompressedFileName);
-//        Reader reader = new InputStreamReader(inputStream, "Windows-1251");
-//        Reader bufferedReader = new BufferedReader(reader);
-//        CSVReaderBuilder csvReaderBuilder = new CSVReaderBuilder(bufferedReader);
-//        CSVReader csvReader = csvReaderBuilder.withSkipLines(2).build();
-//        bufferedReader.close();
-//        reader.close();
-//        inputStream.close();
-//        return csvReader.readAll();
-//    }
 
     /**
      * Извлечение содержимого из архива
@@ -161,14 +136,9 @@ public class WebFmsService implements FmsService {
      */
     private void downloadZipFromUrl() throws Exception {
         RestTemplate restTemplate = new RestTemplate();
-        try {
-            String archiveUrl = "http://webzato.com/fms/fms_structure_10012018.zip";
-            byte[] archiveBytes = restTemplate.getForObject(archiveUrl, byte[].class);
-            Files.write(Paths.get(ARCHIVE_FILE_NAME), archiveBytes);
-        } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new Exception("Ошибка обработки архива");
-        }
+        String archiveUrl = "http://webzato.com/fms/fms_structure_10012018.zip";
+        byte[] archiveBytes = restTemplate.getForObject(archiveUrl, byte[].class);
+        Files.write(Paths.get(ARCHIVE_FILE_NAME), archiveBytes);
     }
 
     /**
